@@ -1,86 +1,182 @@
-<div id="chatbot" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh; background: transparent; font-family: 'Arial', sans-serif; color: #FFFFFF; overflow: hidden;">
-  <div style="width: 90%; max-width: 600px; height: 80%; border-radius: 15px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 2px solid #4F4F4F; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; overflow: hidden;">
-    <!-- Header -->
-    <div style="background: rgba(255, 255, 255, 0.15); padding: 20px; text-align: center; font-size: 18px; font-weight: bold; color: #FFFFFF; border-bottom: 2px solid #4F4F4F;">
-      Chat with Harem Cash 💬
-    </div>
-    <!-- Chat Area -->
-    <div id="chatbot-messages" style="flex: 1; padding: 20px; color: #FFFFFF; font-size: 16px; line-height: 1.5; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: rgba(50, 50, 50, 0.1);">
-      <div style="text-align: center; font-size: 14px; color: #E0E0E0;">Welcome to Harem Cash's world. Say hello!</div>
-    </div>
-    <!-- Input Area -->
-    <div style="display: flex; padding: 15px; background: rgba(255, 255, 255, 0.15); border-top: 2px solid #4F4F4F;">
-      <input id="chatbot-input" type="text" placeholder="Type your message here..." style="flex: 1; padding: 15px; font-size: 14px; background: rgba(255, 255, 255, 0.9); color: #333333; border: none; border-radius: 10px; outline: none; box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1); margin-right: 10px;">
-      <button id="chatbot-send" style="background: rgba(255, 255, 255, 0.2); color: #FFFFFF; border: 2px solid #4F4F4F; padding: 15px 20px; font-size: 14px; font-weight: bold; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s;">
-        Send
-      </button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <style>
+    /* General styles for the chatbot */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Prevent external scrollbars */
+      font-family: 'Arial', sans-serif;
+      background: transparent; /* Ensure the chatbot blends with the embedding page */
+    }
+
+    #chatbot {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh; /* Full viewport height */
+      background: transparent; /* Transparent to match the embedding website */
+    }
+
+    /* Chatbox container */
+    .chatbox {
+      width: 90%;
+      max-width: 600px;
+      height: 80%;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+      backdrop-filter: blur(10px); /* Frosted glass effect */
+      border: 2px solid #4F4F4F; /* Dark grey border */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden; /* Prevent stretching */
+    }
+
+    /* Header styles */
+    .chatbox-header {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #FFFFFF;
+      border-bottom: 2px solid #4F4F4F;
+    }
+
+    /* Messages area */
+    #chatbot-messages {
+      flex: 1;
+      padding: 20px;
+      color: #FFFFFF;
+      font-size: 16px;
+      line-height: 1.5;
+      overflow-y: auto; /* Scrollbar only for chat messages */
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: rgba(50, 50, 50, 0.1);
+    }
+
+    /* Input area */
+    .chatbox-input-area {
+      display: flex;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.15);
+      border-top: 2px solid #4F4F4F;
+    }
+
+    /* Input field */
+    #chatbot-input {
+      flex: 1;
+      padding: 15px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333333;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-right: 10px;
+    }
+
+    /* Send button */
+    #chatbot-send {
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      border: 2px solid #4F4F4F;
+      padding: 15px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    #chatbot-send:hover {
+      transform: scale(1.1); /* Button hover effect */
+    }
+  </style>
+</head>
+<body>
+  <div id="chatbot">
+    <div class="chatbox">
+      <!-- Header -->
+      <div class="chatbox-header">Chat with Harem Cash 💬</div>
+      <!-- Chat messages area -->
+      <div id="chatbot-messages">
+        <div style="text-align: center; font-size: 14px; color: #E0E0E0;">Welcome to Harem Cash's world. Say hello!</div>
+      </div>
+      <!-- Input area -->
+      <div class="chatbox-input-area">
+        <input id="chatbot-input" type="text" placeholder="Type your message here...">
+        <button id="chatbot-send">Send</button>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  const webhookURL = "https://hook.us2.make.com/x2xrqa8snqci6sw176bjkqb292vr7qfp"; // Replace with your webhook URL
+  <script>
+    const webhookURL = "https://hook.us2.make.com/x2xrqa8snqci6sw176bjkqb292vr7qfp"; // Replace with your webhook URL
 
-  // Function to append messages
-  function appendMessage(sender, message) {
-    const messagesDiv = document.getElementById("chatbot-messages");
-    const messageDiv = document.createElement("div");
-    messageDiv.style.padding = "10px 15px";
-    messageDiv.style.borderRadius = "12px";
-    messageDiv.style.color = sender === "You" ? "#FFFFFF" : "#333333";
-    messageDiv.style.backgroundColor = sender === "You" ? "rgba(77, 182, 255, 0.8)" : "rgba(255, 255, 255, 0.9)";
-    messageDiv.style.alignSelf = sender === "You" ? "flex-end" : "flex-start";
-    messageDiv.style.maxWidth = "70%";
-    messageDiv.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
-    messageDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
-    messagesDiv.appendChild(messageDiv);
-    messagesDiv.scrollTop = messagesDiv.scrollHeight; // Auto-scroll to the bottom
-  }
-
-  // Handle send button
-  document.getElementById("chatbot-send").addEventListener("click", async () => {
-    const userInput = document.getElementById("chatbot-input").value.trim();
-    if (!userInput) return;
-
-    // Display user message
-    appendMessage("You", userInput);
-
-    // Send to webhook
-    try {
-      const response = await fetch(webhookURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message: userInput }),
-      });
-
-      if (!response.ok) throw new Error("Network error");
-
-      const data = await response.json();
-      appendMessage("Harem Cash", data.reply || "Hmm, I’m not sure what to say!");
-    } catch (error) {
-      appendMessage("Harem Cash", "Oops! Something went wrong. Please try again later.");
-      console.error("Error:", error);
+    // Function to append messages
+    function appendMessage(sender, message) {
+      const messagesDiv = document.getElementById("chatbot-messages");
+      const messageDiv = document.createElement("div");
+      messageDiv.style.padding = "10px 15px";
+      messageDiv.style.borderRadius = "12px";
+      messageDiv.style.color = sender === "You" ? "#FFFFFF" : "#333333";
+      messageDiv.style.backgroundColor = sender === "You" ? "rgba(77, 182, 255, 0.8)" : "rgba(255, 255, 255, 0.9)";
+      messageDiv.style.alignSelf = sender === "You" ? "flex-end" : "flex-start";
+      messageDiv.style.maxWidth = "70%";
+      messageDiv.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+      messageDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+      messagesDiv.appendChild(messageDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight; // Auto-scroll to the bottom
     }
 
-    // Clear input
-    document.getElementById("chatbot-input").value = "";
-  });
+    // Handle send button
+    document.getElementById("chatbot-send").addEventListener("click", async () => {
+      const userInput = document.getElementById("chatbot-input").value.trim();
+      if (!userInput) return;
 
-  // Allow Enter key to send messages
-  document.getElementById("chatbot-input").addEventListener("keypress", (event) => {
-    if (event.key === "Enter") {
-      document.getElementById("chatbot-send").click();
-    }
-  });
+      // Display user message
+      appendMessage("You", userInput);
 
-  // Button hover effect
-  const sendButton = document.getElementById("chatbot-send");
-  sendButton.addEventListener("mouseover", () => {
-    sendButton.style.transform = "scale(1.1)";
-  });
-  sendButton.addEventListener("mouseout", () => {
-    sendButton.style.transform = "scale(1)";
-  });
-</script>
+      // Send to webhook
+      try {
+        const response = await fetch(webhookURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: userInput }),
+        });
+
+        if (!response.ok) throw new Error("Network error");
+
+        const data = await response.json();
+        appendMessage("Harem Cash", data.reply || "Hmm, I’m not sure what to say!");
+      } catch (error) {
+        appendMessage("Harem Cash", "Oops! Something went wrong. Please try again later.");
+        console.error("Error:", error);
+      }
+
+      // Clear input
+      document.getElementById("chatbot-input").value = "";
+    });
+
+    // Allow Enter key to send messages
+    document.getElementById("chatbot-input").addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
+        document.getElementById("chatbot-send").click();
+      }
+    });
+  </script>
+</body>
+</html>
