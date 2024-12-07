@@ -1,17 +1,17 @@
-<div id="chatbot" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh; background: #6F6F6F; font-family: 'Arial', sans-serif; color: #FFFFFF;">
-  <div style="width: 90%; max-width: 600px; height: 80%; border-radius: 15px; background: rgba(60, 60, 60, 0.9); backdrop-filter: blur(8px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; overflow: hidden;">
+<div id="chatbot" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh; background: transparent; font-family: 'Arial', sans-serif; color: #FFFFFF;">
+  <div style="width: 90%; max-width: 600px; height: 80%; border-radius: 15px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 2px solid #4F4F4F; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; overflow: hidden;">
     <!-- Header -->
-    <div style="background: rgba(40, 40, 40, 0.8); padding: 20px; text-align: center; font-size: 18px; font-weight: bold; color: #FFFFFF; border-bottom: 2px solid rgba(255, 255, 255, 0.2);">
+    <div style="background: rgba(255, 255, 255, 0.15); padding: 20px; text-align: center; font-size: 18px; font-weight: bold; color: #FFFFFF; border-bottom: 2px solid #4F4F4F;">
       Chat with Harem Cash 💬
     </div>
     <!-- Chat Area -->
-    <div id="chatbot-messages" style="flex: 1; padding: 20px; color: #FFFFFF; font-size: 16px; line-height: 1.5; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: rgba(50, 50, 50, 0.5);">
-      <div style="text-align: center; font-size: 14px; color: #CCCCCC;">Welcome to Harem Cash's world. Say hello!</div>
+    <div id="chatbot-messages" style="flex: 1; padding: 20px; color: #FFFFFF; font-size: 16px; line-height: 1.5; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: rgba(50, 50, 50, 0.1);">
+      <div style="text-align: center; font-size: 14px; color: #E0E0E0;">Welcome to Harem Cash's world. Say hello!</div>
     </div>
     <!-- Input Area -->
-    <div style="display: flex; padding: 15px; background: rgba(40, 40, 40, 0.8); border-top: 2px solid rgba(255, 255, 255, 0.2);">
-      <input id="chatbot-input" type="text" placeholder="Type your message here..." style="flex: 1; padding: 15px; font-size: 14px; background: rgba(255, 255, 255, 0.9); color: #333333; border: none; border-radius: 10px; outline: none; box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2); margin-right: 10px;">
-      <button id="chatbot-send" style="background: rgba(60, 60, 60, 0.9); color: #FFFFFF; border: none; padding: 15px 20px; font-size: 14px; font-weight: bold; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); transition: transform 0.2s;">
+    <div style="display: flex; padding: 15px; background: rgba(255, 255, 255, 0.15); border-top: 2px solid #4F4F4F;">
+      <input id="chatbot-input" type="text" placeholder="Type your message here..." style="flex: 1; padding: 15px; font-size: 14px; background: rgba(255, 255, 255, 0.9); color: #333333; border: none; border-radius: 10px; outline: none; box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1); margin-right: 10px;">
+      <button id="chatbot-send" style="background: rgba(255, 255, 255, 0.2); color: #FFFFFF; border: 2px solid #4F4F4F; padding: 15px 20px; font-size: 14px; font-weight: bold; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s;">
         Send
       </button>
     </div>
@@ -28,10 +28,10 @@
     messageDiv.style.padding = "10px 15px";
     messageDiv.style.borderRadius = "12px";
     messageDiv.style.color = sender === "You" ? "#FFFFFF" : "#333333";
-    messageDiv.style.backgroundColor = sender === "You" ? "rgba(100, 100, 255, 0.8)" : "rgba(255, 255, 255, 0.9)";
+    messageDiv.style.backgroundColor = sender === "You" ? "rgba(77, 182, 255, 0.8)" : "rgba(255, 255, 255, 0.9)";
     messageDiv.style.alignSelf = sender === "You" ? "flex-end" : "flex-start";
     messageDiv.style.maxWidth = "70%";
-    messageDiv.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.2)";
+    messageDiv.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
     messageDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
     messagesDiv.appendChild(messageDiv);
     messagesDiv.scrollTop = messagesDiv.scrollHeight; // Auto-scroll to the bottom
